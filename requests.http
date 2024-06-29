@@ -1,0 +1,67 @@
+# apps
+### Get all apps
+GET http://localhost:3000/api/v1/apps
+
+### Create an app
+POST http://localhost:3000/api/v1/apps
+Content-Type: application/json
+
+{
+    "name": "Mac Pro"
+}
+
+### Get app by token
+GET http://localhost:3000/api/v1/apps/213776
+
+### Update app by token
+PATCH http://localhost:3000/api/v1/apps/213776
+Content-Type: application/json
+
+{
+    "name": "Updated xx"
+}
+
+#################################################
+# chats
+
+### Get all chats for an application
+GET http://localhost:3000/api/v1/apps/213776/chats
+
+### Get a specific chat for an application
+GET http://localhost:3000/api/v1/apps/213776/chats/1
+
+### Create a chat for an application
+POST http://localhost:3000/api/v1/apps/839104685/chats
+Content-Type: application/json
+
+#################################################
+# messages
+
+### Get all messages for a chat
+GET http://localhost:3000/api/v1/apps/839104685/chats/63/messages
+
+### Get a specific message for a chat
+GET http://localhost:3000/api/v1/apps/839104685/chats/63/messages/1000
+
+### Create a message for a chat
+POST http://localhost:3000/api/v1/apps/839104685/chats/63/messages
+Content-Type: application/json
+
+{
+    "message": {
+        "content": "Hello, world!"
+    }
+}
+
+### Update a message for a chat TODO: 
+# PATCH http://localhost:3000/api/v1/apps/213776/chats/1/messages/42
+# Content-Type: application/json
+
+# {
+#     "message": {
+#         "content": "Updated message content"
+#     }
+# }
+
+### Search messages for a chat TODO:
+# GET http://localhost:3000/api/v1/apps/213776/chats/1/messages/search?query=Hello
