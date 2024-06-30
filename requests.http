@@ -29,44 +29,32 @@ Content-Type: application/json
 GET http://localhost:{{port}}/api/v1/apps/88349803/chats
 
 ### Get a specific chat for an application
-GET http://localhost:{{port}}/api/v1/apps/487288005/chats/1
+GET http://localhost:{{port}}/api/v1/apps/9654102836/chats/1
 
 ### Create a chat for an application
-POST http://localhost:{{port}}/api/v1/apps/88349803/chats
+POST http://localhost:{{port}}/api/v1/apps/9654102836/chats
 Content-Type: application/json
 
 #################################################
 # messages
 
 ### Get all messages for a chat
-GET http://localhost:{{port}}/api/v1/apps/88349803/chats/1/messages
+GET http://localhost:{{port}}/api/v1/apps/9654102836/chats/1/messages
 
 ### Get a specific message for a chat
 GET http://localhost:{{port}}/api/v1/apps/839104685/chats/63/messages/1000
 
 ### Create a message for a chat
-POST http://localhost:{{port}}/api/v1/apps/88349803/chats/1/messages
+POST http://localhost:{{port}}/api/v1/apps/9654102836/chats/1/messages
 Content-Type: application/json
 
 {
     "message": {
-        "content": "Hello, world!"
+        "content": "Hello, worldsss!"
     }
 }
-
-### Update a message for a chat TODO: 
-# PATCH http://localhost:{{port}}/api/v1/apps/213776/chats/1/messages/42
-# Content-Type: application/json
-
-# {
-#     "message": {
-#         "content": "Updated message content"
-#     }
-# }
-
-### Search messages for a chat TODO:
-# GET http://localhost:{{port}}/api/v1/apps/213776/chats/1/messages/search?query=Hello
-
+### search for message (using elastic search)
+GET http://localhost:{{port}}/api/v1/apps/9654102836/chats/1/messages/search/elastic?page=1&per_page=10&query=hello
 
 
 # #NOTES:
