@@ -124,7 +124,7 @@ when scalling the main app horizontally.
 
 # Installation Instructions
 
-Just run
+Run
 
 ```sh
 docker-compose up
