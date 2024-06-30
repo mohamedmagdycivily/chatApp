@@ -54,19 +54,21 @@ need along with MySQL. You may want to check out REDIS.
 
 # Solution Discussion
 
-So as the problem stated it's required to build a chat system, we will be having 3 models within this app which are `applications`, `chats` and `messages` each of them described as following
+So as the problem stated it's required to build a chat system, we will be having 3 models within this app which are `apps`, `chats` and `messages` each of them described as following
 
 * APP Model
 - > `1:m` relation with the `Chat` model
     - token: `integer` (random number will be generated on a new record creation).
     - name: `string` (name of the application provided by the user ing the request body). 
     - chats_count: `integer` (Number of chats within this application). 
+    - unique index on token.
 
 * Chat Model
 - > `1:m` relation with the `Message` model and belongs to one application
     - chat_number: `integer` (id of the chat for a specific application starts from 1 in each application an counts up). 
     - messages_count: `integer` (number of messages inside this chat).
     - application_id: `application` (The id of the parent application)
+    - unique index on [app_id, chat_number]
 
 * Message Model
 - > belongs to one `Chat` model record.
