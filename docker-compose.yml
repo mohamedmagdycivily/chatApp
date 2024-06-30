@@ -24,6 +24,9 @@ services:
     volumes:
       - .:/app
     environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
       REDIS_HOST: redis
       REDIS_PORT: 6379
   
@@ -35,6 +38,19 @@ services:
       - .:/app
     ports:
       - "4000:3000"
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+
+  cron:
+    build: .
+    command: sh -c "cron && whenever --update-crontab && tail -f cron_log.txt"
+    restart: always
+    volumes:
+      - .:/app
     environment:
       MYSQL_HOST: mysql
       MYSQL_USER: root

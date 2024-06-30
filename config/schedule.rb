@@ -30,7 +30,7 @@ ENV.each_key do |key|
 end
 set :environment, 'development'
 set :output, "cron_log.txt"
-every 1.minutes do
+every 30.minutes do
     rake "update_counts:apps"
     rake "update_counts:chats"
 end

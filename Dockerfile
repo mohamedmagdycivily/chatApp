@@ -1,5 +1,5 @@
 # Use the official Ruby image from Docker Hub with the desired version
-FROM ruby:3.3.3
+FROM ruby:3.3.3-slim
 
 # Install system dependencies
 RUN apt-get update && \
@@ -14,8 +14,8 @@ RUN apt-get update && \
         curl \
         gnupg2 \
         dirmngr \
-        && curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
-        && apt-get install -y nodejs
+        nodejs \
+        cron
 
 # Set working directory in the container
 WORKDIR /app
