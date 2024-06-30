@@ -128,7 +128,7 @@ class Api::V1::MessagesController < ApplicationController
           query: {
             bool: {
               must: [
-                { match_phrase: { "content.content": query } },
+                { match: { "content.content": query } },
                 { match: { app_token: token } },
                 { match: { chat_number: chat_number } }
               ]
