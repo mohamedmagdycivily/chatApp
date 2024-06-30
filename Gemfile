@@ -69,3 +69,4 @@ end
 
 # Gemfile
 gem 'sidekiq'
+gem 'whenever', require: false
